@@ -15,6 +15,7 @@ body{font-family:Inter,-apple-system,"Segoe UI",sans-serif;font-size:14px;color:
 .rl{font-family:monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#b9bcc2;margin:8px 0 4px}
 .mb{padding:7px 6px;font-size:12.5px;color:#56585e;display:flex;justify-content:space-between;border-radius:6px}
 .mb.on{background:#eef2f8;color:#1a1b1d;font-weight:500}.mb.off{color:#b9bcc2}.mb .c{font-family:monospace;font-size:10px;color:#b9bcc2}
+.taughtline{margin-top:10px;font-family:monospace;font-size:10px;color:#8a8d93}
 .me{margin-top:auto;border-top:1px solid #f1efe9;padding-top:10px;display:flex;align-items:center;gap:8px}
 .me .av{width:24px;height:24px;border-radius:50%;background:#eef2f8;color:#2c5a92;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center}
 .me .mn{font-size:12px;color:#56585e}.me .mr{font-family:monospace;font-size:9px;color:#b9bcc2}
@@ -37,12 +38,34 @@ body{font-family:Inter,-apple-system,"Segoe UI",sans-serif;font-size:14px;color:
 .av2{width:33px;height:33px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;background:#eef1f4;color:#5f6e7e}
 .fr{font-size:13px;color:#56585e;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tag{font-family:monospace;font-size:8.5px;text-transform:uppercase;padding:2px 7px;border-radius:4px;font-weight:600;margin-left:8px}
+.tght{font-family:monospace;font-size:8px;text-transform:uppercase;padding:2px 6px;border-radius:4px;background:#e7f1ec;color:#2f7d57;margin-left:6px}
 .su{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .wy{font-size:11.5px;color:#8a8d93;font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tm{font-family:monospace;font-size:10.5px;color:#b9bcc2;white-space:nowrap}
 .st{padding:40px 22px;text-align:center;color:#8a8d93}
 .ft{padding:13px 22px;font-family:monospace;font-size:10px;color:#b9bcc2;border-top:1px solid #f1efe9}
 .tier-general{background:#eef1f4;color:#5f6e7e}.tier-finance{background:#e7f1ec;color:#2f7d57}.tier-comp{background:#f6ecd9;color:#9a6212}.tier-legal{background:#efeafa;color:#6b4ea8}.tier-hr{background:#f7e7e6;color:#a8423f}.tier-restricted{background:#f7e3e1;color:#a3322d}
+.ov{position:fixed;inset:0;background:rgba(20,20,22,.38);display:none;align-items:center;justify-content:center;z-index:50}
+.ov.on{display:flex}
+.pn{background:#fff;width:560px;max-width:92vw;max-height:88vh;overflow-y:auto;border-radius:12px;box-shadow:0 18px 50px rgba(0,0,0,.25)}
+.ph{padding:18px 20px;border-bottom:1px solid #f1efe9}
+.ph .from{font-size:15px;font-weight:600}.ph .em{font-family:monospace;font-size:11px;color:#8a8d93}
+.ph .sub{font-size:14px;margin-top:8px}
+.pb{padding:16px 20px}
+.kv{font-size:12px;color:#56585e;margin-bottom:6px}.kv b{color:#1a1b1d}
+.why{background:#faf9f7;border:1px solid #f1efe9;border-radius:8px;padding:11px 13px;font-size:12.5px;color:#56585e;font-style:italic;margin:10px 0}
+.th{font-size:12px;font-weight:600;margin:14px 0 8px}
+.br{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.tbn{font-size:12px;padding:7px 13px;border-radius:8px;border:1px solid #e9e6e0;background:#fff;color:#1a1b1d;cursor:pointer}
+.tbn:hover{background:#f7f6f3}.tbn.sel{background:#1a1b1d;color:#fff;border-color:#1a1b1d}
+.gr{margin-top:12px;padding:12px 13px;border:1px solid #dce6f3;background:#f5f8fc;border-radius:8px;display:none}
+.gr.on{display:block}.gr .q{font-size:12px;margin-bottom:9px}
+.go{display:flex;justify-content:space-between;align-items:center;padding:9px 11px;border:1px solid #e9e6e0;background:#fff;border-radius:7px;margin-bottom:7px;cursor:pointer}
+.go:hover{border-color:#2c5a92}
+.go .lab{font-size:12.5px}.go .lab small{display:block;font-family:monospace;font-size:10px;color:#8a8d93}
+.go .cnt{font-family:monospace;font-size:12px;color:#2c5a92;font-weight:600;white-space:nowrap}
+.pc{float:right;cursor:pointer;color:#b9bcc2;font-size:18px;line-height:1}
+.note{font-size:11px;color:#8a8d93;margin-top:8px}
 </style>
 </head>
 <body>
@@ -51,6 +74,7 @@ body{font-family:Inter,-apple-system,"Segoe UI",sans-serif;font-size:14px;color:
 <div class="brand">Tool<small>hirekraft</small></div>
 <div class="mode">mode &middot; CEO</div>
 <div class="rl">Mailboxes</div><div id="mb"></div>
+<div class="taughtline" id="taughtline"></div>
 <div class="me"><span class="av">AN</span><div><div class="mn">Alex N.</div><div class="mr">all access</div></div></div>
 </aside>
 <main class="main">
@@ -62,25 +86,35 @@ body{font-family:Inter,-apple-system,"Segoe UI",sans-serif;font-size:14px;color:
 <div class="ft" id="ft"></div>
 </main>
 </div>
+<div class="ov" id="ov"><div class="pn" id="pn"></div></div>
 <script>
 var API="https://uvdoompnnypmneyrvtas.supabase.co/functions/v1/tool-inbox";
 var SRC="gmail:alex@hirekraft.ai";
 var CATS={business:{l:"Business",i:"ti-briefcase",c:"In the brain. The intelligence reasons over these. Your personal life never enters here."},noise:{l:"Noise",i:"ti-news",c:"Newsletters, promotions, notifications kept out of the brain, nothing deleted."},personal:{l:"Personal",i:"ti-user",c:"Judged personal kept out of the company brain, private to you."}};
 var TK=["general","finance","comp","legal","hr","restricted"];
 var MB=[["alex@",1],["accounting@",0],["admin@",0],["marketing@",0],["recruitment@",0]];
-var counts=null,cat="business",tier=null;
-function api(action,extra){return fetch(API+"?t="+Date.now(),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(Object.assign({action:action,source_key:SRC},extra||{}))}).then(function(r){return r.json();});}
-function rail(){document.getElementById("mb").innerHTML=MB.map(function(m){var v=m[1]&&counts?(counts.business+counts.noise+counts.personal).toLocaleString():(m[1]?"...":"off");return "<div class=\"mb "+(m[1]?"on":"off")+"\"><span>"+m[0]+"</span><span class=c>"+v+"</span></div>";}).join("");}
+var counts=null,cat="business",tier=null,rows=[],open=null,pB=null,pT=null,blast=null;
+function api(a,x){return fetch(API+"?t="+Date.now(),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(Object.assign({action:a,source_key:SRC},x||{}))}).then(function(r){return r.json();});}
+function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function ini(s){var p=(s||"?").replace(/[<>"].*/,"").trim().split(/\s+/);return ((p[0]||"?")[0]+(p[1]?p[1][0]:"")).toUpperCase();}
+function fmt(d){if(!d)return"-";return new Date(d).toLocaleDateString("en-US",{month:"short",day:"numeric"});}
+function dom(e){var p=(e||"").split("@");return p.length>1?p[1]:"";}
+function rail(){document.getElementById("mb").innerHTML=MB.map(function(m){var v=m[1]&&counts?(counts.business+counts.noise+counts.personal).toLocaleString():(m[1]?"...":"off");return "<div class=\"mb "+(m[1]?"on":"off")+"\"><span>"+m[0]+"</span><span class=c>"+v+"</span></div>";}).join("");document.getElementById("taughtline").textContent=counts&&counts.taught?(counts.taught.toLocaleString()+" messages taught"):"";}
 function tabs(){document.getElementById("tabs").innerHTML=Object.keys(CATS).map(function(k){var c=CATS[k];var n=counts?counts[k].toLocaleString():"...";return "<div class=\"tab "+(cat===k?"on":"")+"\" onclick=\"setCat('"+k+"')\"><i class=\"ti "+c.i+"\"></i><span class=tl>"+c.l+"</span><span class=n>"+n+"</span></div>";}).join("");}
 function ctx(){var c=CATS[cat];var e=document.getElementById("ctx");e.className="ctx "+cat;e.textContent=c.c;}
 function chips(){var b=document.getElementById("chips");if(cat!=="business"||!counts){b.style.display="none";return;}b.style.display="flex";var h="<div class=\"chip "+(tier===null?"on":"")+"\" onclick=\"setTier(null)\">All <span class=c>"+counts.business.toLocaleString()+"</span></div>";h+=TK.map(function(t){return "<div class=\"chip "+(tier===t?"on":"")+"\" onclick=\"setTier('"+t+"')\"><span class=\"tag tier-"+t+"\" style=\"margin:0;padding:1px 6px\">"+t+"</span><span class=c>"+((counts.tiers[t]||0).toLocaleString())+"</span></div>";}).join("");b.innerHTML=h;}
-function ini(s){var p=(s||"?").replace(/[<>"].*/,"").trim().split(/\s+/);return ((p[0]||"?")[0]+(p[1]?p[1][0]:"")).toUpperCase();}
-function fmt(d){if(!d)return"-";return new Date(d).toLocaleDateString("en-US",{month:"short",day:"numeric"});}
-function esc(s){return (s||"").replace(/</g,"&lt;");}
-function load(){var L=document.getElementById("list");L.innerHTML="<div class=st>Loading "+cat+"...</div>";api("messages",{bucket:cat,tier:tier,limit:50}).then(function(res){if(!res.ok){L.innerHTML="<div class=st>Error: "+res.error+"</div>";return;}var rows=res.messages||[];document.getElementById("ft").textContent=cat+(tier?"/"+tier:"")+": "+rows.length+" shown - live from brain, nothing hand-entered";if(!rows.length){L.innerHTML="<div class=st>No messages.</div>";return;}L.innerHTML=rows.map(function(m){var tag=(cat==="business"&&m.tier)?"<span class=\"tag tier-"+m.tier+"\">"+m.tier+"</span>":"";var s=(m.subject||"").replace(/'/g,"");return "<div class=m onclick=\"sendPrompt('Open this "+cat+" message, say why it was classified "+cat+(m.tier?(" / "+m.tier):"")+", and if business draft a reply: "+s.replace(/\"/g,"")+"')\"><span class=av2>"+ini(m.from_name)+"</span><div style=min-width:0><div><span class=fr>"+esc(m.from_name||m.from_email||"?")+"</span>"+tag+"</div><div class=su>"+esc(m.subject)+"</div><div class=wy>"+esc((m.reason||"").slice(0,110))+"</div></div><div class=tm>"+fmt(m.date)+"</div></div>";}).join("");}).catch(function(e){L.innerHTML="<div class=st>Could not reach brain: "+e+"</div>";});}
+function load(){var L=document.getElementById("list");L.innerHTML="<div class=st>Loading "+cat+"...</div>";api("messages",{bucket:cat,tier:tier,limit:60}).then(function(res){if(!res.ok){L.innerHTML="<div class=st>Error: "+res.error+"</div>";return;}rows=res.messages||[];document.getElementById("ft").textContent=cat+(tier?"/"+tier:"")+": "+rows.length+" shown - click any message to read and teach";if(!rows.length){L.innerHTML="<div class=st>No messages.</div>";return;}L.innerHTML=rows.map(function(m,i){var tag=(cat==="business"&&m.tier)?"<span class=\"tag tier-"+m.tier+"\">"+m.tier+"</span>":"";var tb=m.taught?"<span class=tght>taught</span>":"";return "<div class=m onclick=\"openMsg("+i+")\"><span class=av2>"+ini(m.from_name)+"</span><div style=min-width:0><div><span class=fr>"+esc(m.from_name||m.from_email||"?")+"</span>"+tag+tb+"</div><div class=su>"+esc(m.subject)+"</div><div class=wy>"+esc((m.reason||"").slice(0,110))+"</div></div><div class=tm>"+fmt(m.date)+"</div></div>";}).join("");}).catch(function(e){L.innerHTML="<div class=st>Could not reach brain: "+e+"</div>";});}
 function setCat(k){cat=k;tier=null;tabs();ctx();chips();load();}
 function setTier(t){tier=t;chips();load();}
-window.sendPrompt=window.sendPrompt||function(t){alert(t);};
+function openMsg(i){open=rows[i];pB=null;pT=null;blast=null;renderPanel();document.getElementById("ov").classList.add("on");}
+function closePanel(){document.getElementById("ov").classList.remove("on");open=null;}
+function renderPanel(){var m=open;var d=dom(m.from_email);var bb=Object.keys(CATS).map(function(k){return "<button class=\"tbn "+(pB===k?"sel":"")+"\" onclick=\"pickB('"+k+"')\">"+CATS[k].l+"</button>";}).join("");var tb=TK.map(function(t){return "<button class=\"tbn "+(pT===t?"sel":"")+"\" onclick=\"pickT('"+t+"')\">"+t+"</button>";}).join("");var gr="";if(pB||pT){var lab=pB?("move to "+CATS[pB].l):("set tier "+pT);var sC=blast?blast.sender.toLocaleString():"...";var dC=blast?blast.domain.toLocaleString():"...";gr="<div class=\"gr on\"><div class=q>Apply &ldquo;"+lab+"&rdquo; to:</div><div class=go onclick=\"commit('sender_email')\"><div class=lab>Just this sender<small>"+esc(m.from_email)+"</small></div><div class=cnt>"+sC+" msgs</div></div><div class=go onclick=\"commit('sender_domain')\"><div class=lab>Everyone at this domain<small>@"+esc(d)+"</small></div><div class=cnt>"+dC+" msgs</div></div><div class=note>Reversible. Nothing in the brain is rewritten; this is a rule the brain applies.</div></div>";}document.getElementById("pn").innerHTML="<div class=ph><span class=pc onclick=closePanel()>&times;</span><div class=from>"+esc(m.from_name||m.from_email)+"</div><div class=em>"+esc(m.from_email)+"</div><div class=sub>"+esc(m.subject)+"</div></div><div class=pb><div class=kv>Currently in: <b>"+(cat.charAt(0).toUpperCase()+cat.slice(1))+(m.tier?(" / "+m.tier):"")+"</b></div><div class=kv>Received: <b>"+fmt(m.date)+"</b></div><div class=why>"+esc(m.reason||"(no reasoning recorded)")+"</div><div class=th>This belongs in &mdash; teach the brain</div><div class=br>"+bb+"</div><div class=th>Or set its sensitivity tier</div><div class=br>"+tb+"</div>"+gr+"</div>";}
+function ensureBlast(){var m=open;return api("blast",{email:m.from_email,domain:dom(m.from_email)}).then(function(r){if(r.ok){blast=r.blast;renderPanel();}});}
+function pickB(k){pB=(pB===k?null:k);if(pB)pT=null;renderPanel();if(pB)ensureBlast();}
+function pickT(t){pT=(pT===t?null:t);if(pT)pB=null;renderPanel();if(pT)ensureBlast();}
+function commit(kind){var m=open;var val=kind==="sender_email"?m.from_email:dom(m.from_email);var p={match_kind:kind,match_value:val,rationale:"Taught from message: "+(m.subject||"").slice(0,80)};if(pB)p.set_bucket=pB;if(pT)p.set_tier=pT;document.getElementById("pn").innerHTML="<div class=pb><div class=st>Teaching the brain...</div></div>";api("teach",p).then(function(r){if(r.ok&&r.counts){counts=r.counts;}closePanel();rail();tabs();chips();load();});}
+window.sendPrompt=window.sendPrompt||function(t){};
+document.getElementById("ov").addEventListener("click",function(e){if(e.target.id==="ov")closePanel();});
 rail();tabs();ctx();api("counts").then(function(c){if(c.ok){counts=c.counts;}rail();tabs();chips();load();}).catch(function(){load();});
 </script>
 </body>
