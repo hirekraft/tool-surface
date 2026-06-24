@@ -13,8 +13,9 @@ body{font-family:Inter,-apple-system,"Segoe UI",sans-serif;font-size:14px;color:
 .brand{font-weight:600;font-size:13px}.brand small{display:block;color:#b9bcc2;font-size:9px;font-family:monospace}
 .mode{margin:12px 0;padding:7px 10px;background:#eef2f8;border:1px solid #dce6f3;border-radius:7px;font-family:monospace;font-size:10px;color:#2c5a92}
 .rl{font-family:monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#b9bcc2;margin:8px 0 4px}
-.mb{padding:7px 6px;font-size:12.5px;color:#56585e;display:flex;justify-content:space-between;border-radius:6px}
-.mb.on{background:#eef2f8;color:#1a1b1d;font-weight:500}.mb.off{color:#b9bcc2}.mb .c{font-family:monospace;font-size:10px;color:#b9bcc2}
+.mb{padding:7px 6px;font-size:12.5px;color:#56585e;display:flex;justify-content:space-between;border-radius:6px;cursor:pointer}
+.mb.on{background:#eef2f8;color:#1a1b1d;font-weight:500}.mb.off{color:#c4c6cb;cursor:default}.mb .c{font-family:monospace;font-size:10px;color:#b9bcc2}
+.mb.sel{outline:1px solid #2c5a92}
 .taughtline{margin-top:10px;font-family:monospace;font-size:10px;color:#8a8d93}
 .me{margin-top:auto;border-top:1px solid #f1efe9;padding-top:10px;display:flex;align-items:center;gap:8px}
 .me .av{width:24px;height:24px;border-radius:50%;background:#eef2f8;color:#2c5a92;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center}
@@ -23,6 +24,18 @@ body{font-family:Inter,-apple-system,"Segoe UI",sans-serif;font-size:14px;color:
 .tb{display:flex;align-items:center;gap:12px;padding:13px 22px;border-bottom:1px solid #e9e6e0;background:#fff}
 .tb h1{font-size:15px;font-weight:600}.tb .ad{font-family:monospace;font-size:11px;color:#8a8d93}
 .live{margin-left:auto;font-family:monospace;font-size:10px;color:#8a8d93;display:flex;align-items:center;gap:6px}.live .d{width:7px;height:7px;border-radius:50%;background:#3f9a5a}
+.ask{display:flex;align-items:center;gap:10px;padding:11px 22px;border-bottom:1px solid #e9e6e0;background:#fff}
+.ask .ti{color:#2c5a92;font-size:18px}
+.ask input{flex:1;border:1px solid #e3e6eb;border-radius:9px;padding:10px 13px;font-size:13.5px;font-family:inherit;outline:none;background:#faf9f7}
+.ask input:focus{border-color:#2c5a92;background:#fff}
+.ask button{background:#1a1b1d;color:#fff;border:0;border-radius:9px;padding:10px 18px;font-size:13px;font-weight:500;cursor:pointer}
+.ask button:hover{background:#000}
+.nav{display:flex;padding:0 22px;border-bottom:1px solid #e9e6e0;background:#fff;gap:2px}
+.nv{padding:11px 14px;cursor:pointer;border-bottom:2px solid transparent;color:#8a8d93;display:flex;gap:7px;align-items:center;font-size:13px;white-space:nowrap}
+.nv.on{color:#1a1b1d;border-bottom-color:#2c5a92;font-weight:500}.nv .ti{font-size:16px}
+.nv .n{font-family:monospace;font-size:10px;background:#f1efe9;padding:1px 7px;border-radius:10px;color:#8a8d93}
+.panes{flex:1;display:flex;min-height:0}
+.pane{flex:1;display:flex;flex-direction:column;min-width:0}
 .tabs{display:flex;padding:0 22px;border-bottom:1px solid #e9e6e0;background:#fff}
 .tab{padding:12px 16px;cursor:pointer;border-bottom:2px solid transparent;color:#8a8d93;display:flex;gap:8px;align-items:center}
 .tab.on{color:#1a1b1d;border-bottom-color:#1a1b1d}.tab .ti{font-size:16px}.tab .tl{font-size:13px;font-weight:500}
@@ -45,16 +58,41 @@ body{font-family:Inter,-apple-system,"Segoe UI",sans-serif;font-size:14px;color:
 .st{padding:40px 22px;text-align:center;color:#8a8d93}
 .ft{padding:13px 22px;font-family:monospace;font-size:10px;color:#b9bcc2;border-top:1px solid #f1efe9}
 .tier-general{background:#eef1f4;color:#5f6e7e}.tier-finance{background:#e7f1ec;color:#2f7d57}.tier-comp{background:#f6ecd9;color:#9a6212}.tier-legal{background:#efeafa;color:#6b4ea8}.tier-hr{background:#f7e7e6;color:#a8423f}.tier-restricted{background:#f7e3e1;color:#a3322d}
+.wrap{flex:1;overflow-y:auto;padding:20px 22px}
+.lead{font-size:13.5px;color:#56585e;margin-bottom:15px;line-height:1.55;max-width:760px}
+.lead b{color:#1a1b1d}
+.askin{display:flex;gap:9px;margin-bottom:13px;max-width:760px}
+.askin input{flex:1;border:1px solid #e3e6eb;border-radius:9px;padding:10px 13px;font-size:13.5px;font-family:inherit;outline:none;background:#fff}
+.askin input:focus{border-color:#2c5a92}
+.askin button{background:#1a1b1d;color:#fff;border:0;border-radius:9px;padding:10px 16px;font-size:13px;cursor:pointer}
+.askin button:hover{background:#000}
+.sug{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px;max-width:760px}
+.sugc{font-size:11.5px;padding:5px 11px;border-radius:18px;border:1px solid #dce6f3;background:#f5f8fc;color:#2c5a92;cursor:pointer}
+.sugc:hover{background:#e9f0f9}
+.scaf{font-size:12px;color:#8a6d1f;background:#fbf6e8;border:1px solid #f0e6c8;border-radius:8px;padding:11px 13px;margin-bottom:16px;max-width:760px;line-height:1.5}
+.results{max-width:760px}
+.ans{border:1px solid #e9e6e0;border-radius:10px;padding:14px 16px;margin-bottom:12px;background:#fff}
+.ans.load{opacity:.7}.ans.err{border-color:#f0d3cf}
+.aq{font-size:12px;font-weight:600;color:#2c5a92;margin-bottom:8px}
+.at{font-size:13.5px;line-height:1.6;color:#1a1b1d;white-space:pre-wrap}
+.at .cn{font-family:monospace;font-size:11px;color:#2c5a92;font-weight:600}
+.cl{margin-top:13px;border-top:1px solid #f1efe9;padding-top:11px}
+.cll{font-family:monospace;font-size:9.5px;color:#b9bcc2;text-transform:uppercase;letter-spacing:.05em;margin-bottom:9px}
+.cite{padding:8px 10px;background:#faf9f7;border:1px solid #f1efe9;border-radius:7px;margin-bottom:6px}
+.ch{font-size:11.5px;color:#56585e;margin-bottom:3px}
+.cnn{font-family:monospace;font-size:10px;color:#2c5a92;font-weight:600;margin-right:5px}
+.csrc{font-family:monospace;font-size:9.5px;background:#eef1f4;color:#5f6e7e;padding:1px 6px;border-radius:4px;margin-right:6px}
+.csn{font-size:11.5px;color:#8a8d93;line-height:1.45}
 .ov{position:fixed;inset:0;background:rgba(20,20,22,.38);display:none;align-items:center;justify-content:center;z-index:50}
 .ov.on{display:flex}
-.pn{background:#fff;width:560px;max-width:92vw;max-height:88vh;overflow-y:auto;border-radius:12px;box-shadow:0 18px 50px rgba(0,0,0,.25)}
+.pn{background:#fff;width:600px;max-width:92vw;max-height:88vh;overflow-y:auto;border-radius:12px;box-shadow:0 18px 50px rgba(0,0,0,.25)}
 .ph{padding:18px 20px;border-bottom:1px solid #f1efe9}
 .ph .from{font-size:15px;font-weight:600}.ph .em{font-family:monospace;font-size:11px;color:#8a8d93}
 .ph .sub{font-size:14px;margin-top:8px}
 .pb{padding:16px 20px}
 .kv{font-size:12px;color:#56585e;margin-bottom:6px}.kv b{color:#1a1b1d}
 .why{background:#faf9f7;border:1px solid #f1efe9;border-radius:8px;padding:11px 13px;font-size:12.5px;color:#56585e;font-style:italic;margin:10px 0}
-.th{font-size:12px;font-weight:600;margin:14px 0 8px}
+.th{font-size:12px;font-weight:600;margin:16px 0 8px}
 .br{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
 .tbn{font-size:12px;padding:7px 13px;border-radius:8px;border:1px solid #e9e6e0;background:#fff;color:#1a1b1d;cursor:pointer}
 .tbn:hover{background:#f7f6f3}.tbn.sel{background:#1a1b1d;color:#fff;border-color:#1a1b1d}
@@ -66,6 +104,7 @@ body{font-family:Inter,-apple-system,"Segoe UI",sans-serif;font-size:14px;color:
 .go .cnt{font-family:monospace;font-size:12px;color:#2c5a92;font-weight:600;white-space:nowrap}
 .pc{float:right;cursor:pointer;color:#b9bcc2;font-size:18px;line-height:1}
 .note{font-size:11px;color:#8a8d93;margin-top:8px}
+.wsbox{margin:12px 0 4px;padding:14px;border:1px solid #dce6f3;background:#f5f8fc;border-radius:9px}
 </style>
 </head>
 <body>
@@ -78,44 +117,141 @@ body{font-family:Inter,-apple-system,"Segoe UI",sans-serif;font-size:14px;color:
 <div class="me"><span class="av">AN</span><div><div class="mn">Alex N.</div><div class="mr">all access</div></div></div>
 </aside>
 <main class="main">
-<div class="tb"><h1>Inbox</h1><span class="ad">alex@hirekraft.ai</span><div class="live"><span class="d"></span>live from brain</div></div>
-<div class="tabs" id="tabs"></div>
-<div class="ctx" id="ctx"></div>
-<div class="chips" id="chips"></div>
-<div class="list" id="list"><div class="st">Loading...</div></div>
-<div class="ft" id="ft"></div>
+<div class="tb"><h1 id="h1">Inbox</h1><span class="ad" id="ad">alex@hirekraft.ai</span><div class="live"><span class="d"></span>live from brain</div></div>
+<div class="ask"><i class="ti ti-sparkles"></i><input id="spineInp" placeholder="Ask the brain anything — billing, contracts, who owes whom, what's open…" onkeydown="if(event.key==='Enter')askSpine()"><button onclick="askSpine()">Ask</button></div>
+<div class="nav" id="nav"></div>
+<div class="panes">
+  <div class="pane" id="pane-email">
+    <div class="tabs" id="cats"></div>
+    <div class="ctx" id="ctx"></div>
+    <div class="chips" id="chips"></div>
+    <div class="list" id="list"><div class="st">Loading…</div></div>
+    <div class="ft" id="ft"></div>
+  </div>
+  <div class="pane" id="pane-folders" style="display:none"><div class="wrap">
+    <div class="lead"><b>Folders.</b> Drive is in the brain — <b>1,400+ documents</b> (SOWs, MSAs, invoices, decks) reasoned over alongside email. Ask about any document; answers cite the source.</div>
+    <div class="askin"><input id="foInp" placeholder="Ask about a document, contract, or folder…" onkeydown="if(event.key==='Enter')askInto('foInp','foAns',null)"><button onclick="askInto('foInp','foAns',null)">Ask</button></div>
+    <div class="sug">
+      <div class="sugc" onclick="sug('foInp','What is in our latest SOW with Diconium?','foAns',null)">Latest Diconium SOW</div>
+      <div class="sugc" onclick="sug('foInp','Find the master service agreement with Diconium.','foAns',null)">Find the Diconium MSA</div>
+      <div class="sugc" onclick="sug('foInp','Which contracts or SOWs are expiring soon?','foAns',null)">Expiring contracts</div>
+    </div>
+    <div class="scaf">The dedicated folder-gate migration surface (browse / re-file Drive trees) is a later pass. For now this routes Drive questions through the brain's reasoner.</div>
+    <div class="results" id="foAns"></div>
+  </div></div>
+  <div class="pane" id="pane-calendar" style="display:none"><div class="wrap">
+    <div class="lead"><b>Calendar.</b> A live calendar feed isn't ingested into the brain yet. Meetings still surface from email — ask, and the reasoner pulls scheduling context out of threads.</div>
+    <div class="askin"><input id="caInp" placeholder="Ask about meetings, schedules, who you're due to meet…" onkeydown="if(event.key==='Enter')askInto('caInp','caAns',null)"><button onclick="askInto('caInp','caAns',null)">Ask</button></div>
+    <div class="sug">
+      <div class="sugc" onclick="sug('caInp','What meetings or calls do we have coming up with Diconium?','caAns',null)">Upcoming Diconium meetings</div>
+      <div class="sugc" onclick="sug('caInp','What did we last agree to follow up on by a deadline?','caAns',null)">Open deadlines</div>
+    </div>
+    <div class="scaf">Calendar-feed ingestion is queued for the next pass. Today's answers are reconstructed from email, so treat them as leads, not a synced calendar.</div>
+    <div class="results" id="caAns"></div>
+  </div></div>
+  <div class="pane" id="pane-working" style="display:none"><div class="wrap">
+    <div class="lead"><b>Thinking &amp; Working.</b> The open workspace. Ask anything — the brain embeds it, recalls across two years of email and documents, and reasons an evidenced answer. It flags when sources disagree rather than guessing.</div>
+    <div class="askin"><input id="wkInp" placeholder="Think out loud — ask anything across the whole brain…" onkeydown="if(event.key==='Enter')askInto('wkInp','wkAns',null)"><button onclick="askInto('wkInp','wkAns',null)">Ask</button></div>
+    <div class="sug">
+      <div class="sugc" onclick="sug('wkInp','Which SOWs are expiring soon and what should I do about each?','wkAns',null)">Which SOWs are expiring?</div>
+      <div class="sugc" onclick="sug('wkInp','Who owes us money right now, and how much?','wkAns',null)">Who owes us money?</div>
+      <div class="sugc" onclick="sug('wkInp','Summarise the Diconium relationship — scope, money, and open items.','wkAns',null)">Summarise Diconium</div>
+    </div>
+    <div class="results" id="wkAns"></div>
+  </div></div>
+  <div class="pane" id="pane-qb" style="display:none"><div class="wrap">
+    <div class="lead"><b>QuickBooks.</b> The QBO ledger is in the brain. Ask billing, invoice, and rate questions in plain language. Deep rate reconciliation — SOW vs invoice vs QB, contractor-type aware — runs through the assembler, which flags discrepancies rather than concluding.</div>
+    <div class="askin"><input id="qbInp" placeholder="Ask about billing, invoices, rates, what's unpaid…" onkeydown="if(event.key==='Enter')askInto('qbInp','qbAns',null)"><button onclick="askInto('qbInp','qbAns',null)">Ask</button></div>
+    <div class="sug">
+      <div class="sugc" onclick="sug('qbInp','What are we billing Diconium?','qbAns',null)">What are we billing Diconium?</div>
+      <div class="sugc" onclick="sug('qbInp','Which client invoices are currently unpaid?','qbAns',null)">Unpaid client invoices</div>
+      <div class="sugc" onclick="sug('qbInp','Do any contractor pay rates not line up with what we invoice the client?','qbAns',null)">Rate mismatches</div>
+    </div>
+    <div class="scaf">Sovereignty pass B — running QB and embeddings through the studio-proxy — is a later step. Today QB questions read the ingested ledger via the brain.</div>
+    <div class="results" id="qbAns"></div>
+  </div></div>
+</div>
 </main>
 </div>
 <div class="ov" id="ov"><div class="pn" id="pn"></div></div>
+<div class="ov" id="askov"><div class="pn"><div class="ph"><span class="pc" onclick="closeAsk()">&times;</span><div class="from">Ask the brain</div><div class="em">lens · evidenced answers from everything in the brain</div></div><div class="pb"><div class="results" id="spineAns"></div></div></div></div>
 <script>
-var API="https://uvdoompnnypmneyrvtas.supabase.co/functions/v1/tool-inbox";
+var BASE="https://uvdoompnnypmneyrvtas.supabase.co/functions/v1/";
+var API=BASE+"tool-inbox";
+var LENS=BASE+"lens-ask";
 var SRC="gmail:alex@hirekraft.ai";
 var CATS={business:{l:"Business",i:"ti-briefcase",c:"In the brain. The intelligence reasons over these. Your personal life never enters here."},noise:{l:"Noise",i:"ti-news",c:"Newsletters, promotions, notifications kept out of the brain, nothing deleted."},personal:{l:"Personal",i:"ti-user",c:"Judged personal kept out of the company brain, private to you."}};
 var TK=["general","finance","comp","legal","hr","restricted"];
-var MB=[["alex@",1],["accounting@",0],["admin@",0],["marketing@",0],["recruitment@",0]];
-var counts=null,cat="business",tier=null,rows=[],open=null,pB=null,pT=null,blast=null;
+var MB=[["alex@","gmail:alex@hirekraft.ai",1],["accounting@","gmail:accounting@hirekraft.ai",1],["admin@","gmail:admin@hirekraft.ai",0],["marketing@","gmail:marketing@hirekraft.ai",0],["recruitment@","gmail:recruitment@hirekraft.ai",0]];
+var NAV=[["email","Inbox","ti-mail"],["folders","Folders","ti-folder"],["calendar","Calendar","ti-calendar"],["working","Thinking · Working","ti-bulb"],["qb","QuickBooks","ti-calculator"]];
+var nav="email",counts=null,cat="business",tier=null,rows=[],open=null,pB=null,pT=null,blast=null,emHistory="";
+
 function api(a,x){return fetch(API+"?t="+Date.now(),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(Object.assign({action:a,source_key:SRC},x||{}))}).then(function(r){return r.json();});}
+function lens(question,focus){var b={question:question};if(focus)b.focus=focus;return fetch(LENS+"?t="+Date.now(),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)}).then(function(r){return r.json();});}
 function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;");}
 function ini(s){var p=(s||"?").replace(/[<>"].*/,"").trim().split(/\s+/);return ((p[0]||"?")[0]+(p[1]?p[1][0]:"")).toUpperCase();}
 function fmt(d){if(!d)return"-";return new Date(d).toLocaleDateString("en-US",{month:"short",day:"numeric"});}
 function dom(e){var p=(e||"").split("@");return p.length>1?p[1]:"";}
-function rail(){document.getElementById("mb").innerHTML=MB.map(function(m){var v=m[1]&&counts?(counts.business+counts.noise+counts.personal).toLocaleString():(m[1]?"...":"off");return "<div class=\"mb "+(m[1]?"on":"off")+"\"><span>"+m[0]+"</span><span class=c>"+v+"</span></div>";}).join("");document.getElementById("taughtline").textContent=counts&&counts.taught?(counts.taught.toLocaleString()+" messages taught"):"";}
-function tabs(){document.getElementById("tabs").innerHTML=Object.keys(CATS).map(function(k){var c=CATS[k];var n=counts?counts[k].toLocaleString():"...";return "<div class=\"tab "+(cat===k?"on":"")+"\" onclick=\"setCat('"+k+"')\"><i class=\"ti "+c.i+"\"></i><span class=tl>"+c.l+"</span><span class=n>"+n+"</span></div>";}).join("");}
+
+function answerCard(q,res){
+  if(!res||res.ok===false){return "<div class=\"ans err\"><div class=aq>"+esc(q)+"</div><div class=at>Couldn't reach the brain"+(res&&res.error?": "+esc(res.error):"")+".</div></div>";}
+  var a=esc(res.answer||"").replace(/\[(\d+)\]/g,"<span class=cn>[$1]</span>");
+  var cites=(res.citations||[]).map(function(c){return "<div class=cite><div class=ch><span class=cnn>["+c.n+"]</span><span class=csrc>"+esc(c.source||"")+"</span>"+esc(c.doc||"")+"</div><div class=csn>"+esc(c.snippet||"")+"</div></div>";}).join("");
+  return "<div class=ans><div class=aq>"+esc(q)+"</div><div class=at>"+a+"</div>"+(cites?"<div class=cl><div class=cll>Evidence · "+(res.used_chunks||0)+" chunks recalled</div>"+cites+"</div>":"")+"</div>";
+}
+function askInto(inputId,resultsId,focusFn){
+  var inp=document.getElementById(inputId);var q=(inp.value||"").trim();if(!q)return;
+  var res=document.getElementById(resultsId);
+  res.insertAdjacentHTML("afterbegin","<div class=\"ans load\"><div class=aq>"+esc(q)+"</div><div class=at>Reasoning over the brain…</div></div>");
+  if(resultsId==="emAns")emHistory=res.innerHTML;
+  inp.value="";
+  var focus=focusFn?focusFn():null;
+  lens(q,focus).then(function(r){res.removeChild(res.firstChild);res.insertAdjacentHTML("afterbegin",answerCard(q,r));if(resultsId==="emAns")emHistory=res.innerHTML;})
+  .catch(function(e){res.removeChild(res.firstChild);res.insertAdjacentHTML("afterbegin",answerCard(q,{ok:false,error:String(e)}));if(resultsId==="emAns")emHistory=res.innerHTML;});
+}
+function sug(inId,text,resId,ff){document.getElementById(inId).value=text;askInto(inId,resId,ff);}
+function askSpine(){if(!(document.getElementById("spineInp").value||"").trim())return;document.getElementById("askov").classList.add("on");askInto("spineInp","spineAns",null);}
+function closeAsk(){document.getElementById("askov").classList.remove("on");}
+
+function navbar(){document.getElementById("nav").innerHTML=NAV.map(function(t){var n=(t[0]==="email"&&counts)?("<span class=n>"+counts.business.toLocaleString()+"</span>"):"";return "<div class=\"nv "+(nav===t[0]?"on":"")+"\" onclick=\"setNav('"+t[0]+"')\"><i class=\"ti "+t[2]+"\"></i><span>"+t[1]+"</span>"+n+"</div>";}).join("");}
+function setNav(k){nav=k;NAV.forEach(function(t){document.getElementById("pane-"+t[0]).style.display=(t[0]===k?"flex":"none");});var titles={email:"Inbox",folders:"Folders",calendar:"Calendar",working:"Thinking · Working",qb:"QuickBooks"};document.getElementById("h1").textContent=titles[k];navbar();}
+
+function rail(){document.getElementById("mb").innerHTML=MB.map(function(m){var sel=(m[1]===SRC);var v=m[2]?(sel&&counts?(counts.business+counts.noise+counts.personal).toLocaleString():(m[2]?"live":"")):"off";return "<div class=\"mb "+(m[2]?"on":"off")+(sel?" sel":"")+"\""+(m[2]?" onclick=\"setMb('"+m[1]+"')\"":"")+"><span>"+m[0]+"</span><span class=c>"+v+"</span></div>";}).join("");document.getElementById("taughtline").textContent=counts&&counts.taught?(counts.taught.toLocaleString()+" messages taught"):"";}
+function setMb(src){if(src===SRC)return;SRC=src;counts=null;tier=null;cat="business";var lab=MB.filter(function(m){return m[1]===src;})[0][0];document.getElementById("ad").textContent=lab.replace(/@$/,"")+"@hirekraft.ai";rail();cats();ctx();chips();document.getElementById("list").innerHTML="<div class=st>Loading…</div>";api("counts").then(function(c){if(c.ok)counts=c.counts;rail();cats();chips();navbar();load();}).catch(function(){load();});}
+
+function cats(){document.getElementById("cats").innerHTML=Object.keys(CATS).map(function(k){var c=CATS[k];var n=counts?counts[k].toLocaleString():"…";return "<div class=\"tab "+(cat===k?"on":"")+"\" onclick=\"setCat('"+k+"')\"><i class=\"ti "+c.i+"\"></i><span class=tl>"+c.l+"</span><span class=n>"+n+"</span></div>";}).join("");}
 function ctx(){var c=CATS[cat];var e=document.getElementById("ctx");e.className="ctx "+cat;e.textContent=c.c;}
 function chips(){var b=document.getElementById("chips");if(cat!=="business"||!counts){b.style.display="none";return;}b.style.display="flex";var h="<div class=\"chip "+(tier===null?"on":"")+"\" onclick=\"setTier(null)\">All <span class=c>"+counts.business.toLocaleString()+"</span></div>";h+=TK.map(function(t){return "<div class=\"chip "+(tier===t?"on":"")+"\" onclick=\"setTier('"+t+"')\"><span class=\"tag tier-"+t+"\" style=\"margin:0;padding:1px 6px\">"+t+"</span><span class=c>"+((counts.tiers[t]||0).toLocaleString())+"</span></div>";}).join("");b.innerHTML=h;}
-function load(){var L=document.getElementById("list");L.innerHTML="<div class=st>Loading "+cat+"...</div>";api("messages",{bucket:cat,tier:tier,limit:60}).then(function(res){if(!res.ok){L.innerHTML="<div class=st>Error: "+res.error+"</div>";return;}rows=res.messages||[];document.getElementById("ft").textContent=cat+(tier?"/"+tier:"")+": "+rows.length+" shown - click any message to read and teach";if(!rows.length){L.innerHTML="<div class=st>No messages.</div>";return;}L.innerHTML=rows.map(function(m,i){var tag=(cat==="business"&&m.tier)?"<span class=\"tag tier-"+m.tier+"\">"+m.tier+"</span>":"";var tb=m.taught?"<span class=tght>taught</span>":"";return "<div class=m onclick=\"openMsg("+i+")\"><span class=av2>"+ini(m.from_name)+"</span><div style=min-width:0><div><span class=fr>"+esc(m.from_name||m.from_email||"?")+"</span>"+tag+tb+"</div><div class=su>"+esc(m.subject)+"</div><div class=wy>"+esc((m.reason||"").slice(0,110))+"</div></div><div class=tm>"+fmt(m.date)+"</div></div>";}).join("");}).catch(function(e){L.innerHTML="<div class=st>Could not reach brain: "+e+"</div>";});}
-function setCat(k){cat=k;tier=null;tabs();ctx();chips();load();}
+function load(){var L=document.getElementById("list");L.innerHTML="<div class=st>Loading "+cat+"…</div>";api("messages",{bucket:cat,tier:tier,limit:60}).then(function(res){if(!res.ok){L.innerHTML="<div class=st>Error: "+res.error+"</div>";return;}rows=res.messages||[];document.getElementById("ft").textContent=cat+(tier?"/"+tier:"")+": "+rows.length+" shown — click any message to read, ask, and teach";if(!rows.length){L.innerHTML="<div class=st>No messages.</div>";return;}L.innerHTML=rows.map(function(m,i){var tag=(cat==="business"&&m.tier)?"<span class=\"tag tier-"+m.tier+"\">"+m.tier+"</span>":"";var tb=m.taught?"<span class=tght>taught</span>":"";return "<div class=m onclick=\"openMsg("+i+")\"><span class=av2>"+ini(m.from_name)+"</span><div style=min-width:0><div><span class=fr>"+esc(m.from_name||m.from_email||"?")+"</span>"+tag+tb+"</div><div class=su>"+esc(m.subject)+"</div><div class=wy>"+esc((m.reason||"").slice(0,110))+"</div></div><div class=tm>"+fmt(m.date)+"</div></div>";}).join("");}).catch(function(e){L.innerHTML="<div class=st>Could not reach brain: "+e+"</div>";});}
+function setCat(k){cat=k;tier=null;cats();ctx();chips();load();}
 function setTier(t){tier=t;chips();load();}
-function openMsg(i){open=rows[i];pB=null;pT=null;blast=null;renderPanel();document.getElementById("ov").classList.add("on");}
+
+function openMsg(i){open=rows[i];pB=null;pT=null;blast=null;emHistory="";renderPanel();document.getElementById("ov").classList.add("on");}
 function closePanel(){document.getElementById("ov").classList.remove("on");open=null;}
-function renderPanel(){var m=open;var d=dom(m.from_email);var bb=Object.keys(CATS).map(function(k){return "<button class=\"tbn "+(pB===k?"sel":"")+"\" onclick=\"pickB('"+k+"')\">"+CATS[k].l+"</button>";}).join("");var tb=TK.map(function(t){return "<button class=\"tbn "+(pT===t?"sel":"")+"\" onclick=\"pickT('"+t+"')\">"+t+"</button>";}).join("");var gr="";if(pB||pT){var lab=pB?("move to "+CATS[pB].l):("set tier "+pT);var sC=blast?blast.sender.toLocaleString():"...";var dC=blast?blast.domain.toLocaleString():"...";gr="<div class=\"gr on\"><div class=q>Apply &ldquo;"+lab+"&rdquo; to:</div><div class=go onclick=\"commit('sender_email')\"><div class=lab>Just this sender<small>"+esc(m.from_email)+"</small></div><div class=cnt>"+sC+" msgs</div></div><div class=go onclick=\"commit('sender_domain')\"><div class=lab>Everyone at this domain<small>@"+esc(d)+"</small></div><div class=cnt>"+dC+" msgs</div></div><div class=note>Reversible. Nothing in the brain is rewritten; this is a rule the brain applies.</div></div>";}document.getElementById("pn").innerHTML="<div class=ph><span class=pc onclick=closePanel()>&times;</span><div class=from>"+esc(m.from_name||m.from_email)+"</div><div class=em>"+esc(m.from_email)+"</div><div class=sub>"+esc(m.subject)+"</div></div><div class=pb><div class=kv>Currently in: <b>"+(cat.charAt(0).toUpperCase()+cat.slice(1))+(m.tier?(" / "+m.tier):"")+"</b></div><div class=kv>Received: <b>"+fmt(m.date)+"</b></div><div class=why>"+esc(m.reason||"(no reasoning recorded)")+"</div><div class=th>This belongs in &mdash; teach the brain</div><div class=br>"+bb+"</div><div class=th>Or set its sensitivity tier</div><div class=br>"+tb+"</div>"+gr+"</div>";}
+function emFocus(){var m=open;return "Open email — From: "+(m.from_name||"")+" <"+(m.from_email||"")+">; Subject: "+(m.subject||"")+(m.date?("; Received: "+m.date):"")+(m.tier?("; Filed tier: "+m.tier):"")+(m.reason?("; Brain's note: "+m.reason):"");}
+function renderPanel(){var m=open;var d=dom(m.from_email);
+  var bb=Object.keys(CATS).map(function(k){return "<button class=\"tbn "+(pB===k?"sel":"")+"\" onclick=\"pickB('"+k+"')\">"+CATS[k].l+"</button>";}).join("");
+  var tb=TK.map(function(t){return "<button class=\"tbn "+(pT===t?"sel":"")+"\" onclick=\"pickT('"+t+"')\">"+t+"</button>";}).join("");
+  var gr="";if(pB||pT){var lab=pB?("move to "+CATS[pB].l):("set tier "+pT);var sC=blast?blast.sender.toLocaleString():"…";var dC=blast?blast.domain.toLocaleString():"…";gr="<div class=\"gr on\"><div class=q>Apply &ldquo;"+lab+"&rdquo; to:</div><div class=go onclick=\"commit('sender_email')\"><div class=lab>Just this sender<small>"+esc(m.from_email)+"</small></div><div class=cnt>"+sC+" msgs</div></div><div class=go onclick=\"commit('sender_domain')\"><div class=lab>Everyone at this domain<small>@"+esc(d)+"</small></div><div class=cnt>"+dC+" msgs</div></div><div class=note>Reversible. Nothing in the brain is rewritten; this is a rule the brain applies.</div></div>";}
+  document.getElementById("pn").innerHTML="<div class=ph><span class=pc onclick=closePanel()>&times;</span><div class=from>"+esc(m.from_name||m.from_email)+"</div><div class=em>"+esc(m.from_email)+"</div><div class=sub>"+esc(m.subject)+"</div></div><div class=pb>"
+    +"<div class=kv>Currently in: <b>"+(cat.charAt(0).toUpperCase()+cat.slice(1))+(m.tier?(" / "+m.tier):"")+"</b></div><div class=kv>Received: <b>"+fmt(m.date)+"</b></div><div class=why>"+esc(m.reason||"(no reasoning recorded)")+"</div>"
+    +"<div class=th>Working space — ask with this email in focus</div>"
+    +"<div class=wsbox><div class=askin style=margin-bottom:10px><input id=emInp placeholder=\"Ask anything about this thread or sender…\" onkeydown=\"if(event.key==='Enter')askInto('emInp','emAns',emFocus)\"><button onclick=\"askInto('emInp','emAns',emFocus)\">Ask</button></div>"
+    +"<div class=sug style=margin-bottom:10px><div class=sugc onclick=\"sug('emInp','What is the history with this sender?','emAns',emFocus)\">History with this sender</div><div class=sugc onclick=\"sug('emInp','What is the open ask or obligation in this thread?','emAns',emFocus)\">What's the open ask?</div><div class=sugc onclick=\"sug('emInp','What is our position and how should I reply?','emAns',emFocus)\">My position to reply</div></div>"
+    +"<div class=results id=emAns>"+emHistory+"</div></div>"
+    +"<div class=th>Teach the brain — where does this belong</div><div class=br>"+bb+"</div>"
+    +"<div class=th>Or set its sensitivity tier</div><div class=br>"+tb+"</div>"+gr+"</div>";
+}
 function ensureBlast(){var m=open;return api("blast",{email:m.from_email,domain:dom(m.from_email)}).then(function(r){if(r.ok){blast=r.blast;renderPanel();}});}
 function pickB(k){pB=(pB===k?null:k);if(pB)pT=null;renderPanel();if(pB)ensureBlast();}
 function pickT(t){pT=(pT===t?null:t);if(pT)pB=null;renderPanel();if(pT)ensureBlast();}
-function commit(kind){var m=open;var val=kind==="sender_email"?m.from_email:dom(m.from_email);var p={match_kind:kind,match_value:val,rationale:"Taught from message: "+(m.subject||"").slice(0,80)};if(pB)p.set_bucket=pB;if(pT)p.set_tier=pT;document.getElementById("pn").innerHTML="<div class=pb><div class=st>Teaching the brain...</div></div>";api("teach",p).then(function(r){if(r.ok&&r.counts){counts=r.counts;}closePanel();rail();tabs();chips();load();});}
-window.sendPrompt=window.sendPrompt||function(t){};
+function commit(kind){var m=open;var val=kind==="sender_email"?m.from_email:dom(m.from_email);var p={match_kind:kind,match_value:val,rationale:"Taught from message: "+(m.subject||"").slice(0,80)};if(pB)p.set_bucket=pB;if(pT)p.set_tier=pT;document.getElementById("pn").innerHTML="<div class=pb><div class=st>Teaching the brain…</div></div>";api("teach",p).then(function(r){if(r.ok&&r.counts){counts=r.counts;}closePanel();rail();cats();chips();navbar();load();});}
+
 document.getElementById("ov").addEventListener("click",function(e){if(e.target.id==="ov")closePanel();});
-rail();tabs();ctx();api("counts").then(function(c){if(c.ok){counts=c.counts;}rail();tabs();chips();load();}).catch(function(){load();});
+document.getElementById("askov").addEventListener("click",function(e){if(e.target.id==="askov")closeAsk();});
+
+navbar();rail();cats();ctx();
+api("counts").then(function(c){if(c.ok){counts=c.counts;}rail();cats();chips();navbar();load();}).catch(function(){load();});
 </script>
 </body>
 </html>
